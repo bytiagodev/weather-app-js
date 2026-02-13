@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Satoshi';
+    src: url('./fonts/Satoshi-Variable.woff2') format('woff2-variations'),
+         url('./fonts/Satoshi-Variable.woff2') format('woff2');
+    font-weight: 300 900;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400;
+    background-color: #f0f0f0;
+     -webkit-font-smoothing: antialiased; /* makes fonts smoother on Mac/iOS */
+}
+
+button, input, textarea, select {
+    font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 10 rgba(0, 0, 0, 0.3);
+    margin-top: 105px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.weather-info {
+    margin-top: 20px;
+}
