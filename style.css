@@ -16,123 +16,142 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'Satoshi', sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
     color: #fff;
-    background: linear-gradient(to bottom, rgb(28,156,246), rgb(25,195,251));
-    transition: background 0.5s ease;
+    background: linear-gradient(135deg, #1c9cf6, #15c3fb);
+    transition: background 0.8s ease;
+    overflow: hidden;
+    position: relative;
 }
 
-button, input, textarea, select {
-    font-family: inherit;
+body::before, body::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.6;
+    animation: float 15s infinite alternate ease-in-out;
+}
+
+body::before {
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.2);
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.1);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    from { transform: translate(0, 0) rotate(0deg); }
+    to { transform: translate(100px, 50px) rotate(30deg); }
 }
 
 .weather-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 320px;
-    padding: 2rem;
-    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    padding: 2.5rem;
+    border-radius: 30px;
     text-align: center;
-    background-color: rgba(240, 245, 250, 0.15); /* quase gelo, transparente mas mais visível */
-    backdrop-filter: blur(18px); /* aumenta o blur para profundidade */
-    -webkit-backdrop-filter: blur(18px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    transition: background-color 0.5s ease;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15),
+                inset 0 0 15px rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .weather-container h2 {
-    font-size: 1.6rem;
-    color: #fff;
-    margin-bottom: 1rem;
-    font-weight: 500;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 input[type="text"] {
-    width: 90%;
-    max-width: 260px;
-    font-size: 1.05rem;
-    padding: 12px 14px;
-    margin-bottom: 0.75rem;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 180, 255, 0.5);
-    background-color: rgba(240, 245, 250, 0.15);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    width: 100%;
+    font-size: 1rem;
+    padding: 15px 20px;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    font-weight: 600;
     outline: none;
-    transition: 0.3s ease;
-}
-
-input[type="text"]::placeholder {
-    color: rgba(255,255,255,0.8);
-    font-weight: 400;
+    transition: 0.3s;
 }
 
 input[type="text"]:focus {
-    background-color: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 button {
-    width: 50%;
-    min-width: 120px;
-    padding: 12px 0;
-    border-radius: 5px;
+    width: 100%;
+    padding: 14px;
+    border-radius: 15px;
     border: none;
-    background-color: rgb(28, 156, 246);
-    color: #fff;
+    background: #fff;
+    color: #1c9cf6;
     cursor: pointer;
-    transition: 0.3s ease;
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-top: 0.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    background-color: rgb(25,195,251);
-    box-shadow: 0 0 10px rgba(25,195,251,0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1);
 }
 
 .city-name {
-    margin: 0.5rem 0;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #fff;
-    text-shadow: 0 0 5px rgba(0,0,0,0.6);
-}
-
-.weather-info {
-    margin-top: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .icon {
-    font-size: 4rem;
+    font-size: 5rem;
+    margin: 1rem 0;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+}
+
+.temperature {
+    font-size: 3.5rem;
+    font-weight: 800;
     margin-bottom: 0.5rem;
 }
 
-.temperature, .wind {
-    margin: 0.5rem 0;
-    font-size: 1.5rem;
-    color: #fff;
-    transition: 0.3s ease;
+.wind {
+    font-size: 1rem;
+    opacity: 0.9;
 }
 
-.message {
-    margin-top: 1rem;
-    font-size: 1rem;
-    color: #fff;
-    transition: 0.3s ease;
-    display: none;
-}
+body.clear-sky { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+body.cloudy    { background: linear-gradient(135deg, #606c88 0%, #3f4c6b 100%); }
+body.rain      { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+body.snow      { background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%); color: #333; }
+
+body.snow .weather-container { border-color: rgba(0,0,0,0.1); color: #333; }
+body.snow input, body.snow button { border-color: rgba(0,0,0,0.1); }
+body.snow button { background: #333; color: #fff; }
 
 .loading {
     display: block;
@@ -140,22 +159,7 @@ button:hover {
 }
 
 @keyframes pulse {
-    0% {opacity: 0.5;}
-    50% {opacity: 1;}
-    100% {opacity: 0.5;}
+    0% { opacity: 0.4; transform: scale(0.98); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.4; transform: scale(0.98); }
 }
-
-.error {
-    color: #ff5555;
-}
-
-body.clear-sky { background: linear-gradient(to bottom, #28c6f6, #00aaff); }
-body.cloudy    { background: linear-gradient(to bottom, #6e7b8b, #4a5568); }
-body.rain      { background: linear-gradient(to bottom, #3a3a5c, #1f2a44); }
-body.snow      { background: linear-gradient(to bottom, #e0f7fa, #b2ebf2); }
-
-.weather-container.clear-sky { background-color: rgba(200, 245, 255, 0.35); }
-.weather-container.cloudy    { background-color: rgba(180, 200, 220, 0.35); }
-.weather-container.rain      { background-color: rgba(160, 180, 220, 0.35); }
-.weather-container.snow      { background-color: rgba(230, 245, 255, 0.4); }
-
