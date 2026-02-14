@@ -6,19 +6,24 @@
     <title>Weather Watch</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="clear-sky">
-    <div class="weather-container clear-sky">
+<body>
+    <div class="weather-container">
         <h2 class="city">Weather Watch</h2>
+
         <input type="text" id="locationInput" placeholder="Enter a city...">
         <button id="searchButton">Search</button>
+
         <div class="weather-info">
             <div class="icon">🌤️</div>
+            <p class="city-name"></p>
             <div class="temperature">--°C</div>
             <div class="wind">Wind: -- km/h</div>
         </div>
+
         <div class="message loading">Searching...</div>
         <div class="error message">Oops! Please enter a valid city name.</div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

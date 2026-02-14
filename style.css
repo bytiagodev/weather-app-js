@@ -95,6 +95,14 @@ button:hover {
     box-shadow: 0 0 10px rgba(25,195,251,0.4);
 }
 
+.city-name {
+    margin: 0.5rem 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.6);
+}
+
 .weather-info {
     margin-top: 1.25rem;
     display: flex;
