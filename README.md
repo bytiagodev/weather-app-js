@@ -1,32 +1,36 @@
-README.md:
-![Status](https://img.shields.io/badge/Status-In--Progress-orange)
+🌤️ Weather Watch
 
-🌤️ Weather App (In Progress)
-A minimalist weather application built with Vanilla JavaScript that fetches real-time data using the Open-Meteo API.
+A small and approachable web app that shows the current weather for any city. Built to practice API integration, dynamic UI updates, and frontend layout using Vanilla JavaScript and Open-Meteo.
 
-Note: This project is currently in the logic-first phase. I am focusing on API integration and data handling before moving on to advanced UI/UX styling.
+🚀 Live Demo
 
-🚀 Current Features
-Dynamic Geocoding: Converts city names into coordinates automatically.
-Real-time Data: Fetches temperature and wind speed.
-Variable Font Integration: Optimized typography using Satoshi Variable.
-Asynchronous Logic: Efficiently handles multiple API calls using the Fetch API.
+[View Project Live](https://bytiagodev.github.io/weather-app-js/)
+
+✨ About this project
+
+This project started as a logic-focused exercise to fetch and display real-time weather data. Now it also has a simple but visually clear UI with dynamic backgrounds and weather icons. The focus is on clean, readable, and interactive frontend code.
+
+🧠 What I learned
+
+Chained API Calls: Requesting geolocation first, then fetching weather data.
+
+Dynamic DOM Updates: Showing temperature, wind, and weather icons without refreshing the page.
+
+Variable Fonts & Typography: Using Satoshi Variable for clean, readable text.
+
+CSS Effects & Transitions: Implementing glass-like frosted containers and smooth color changes.
+
+Responsive Layouts: Making the container centered and readable on multiple screen sizes.
 
 🛠️ Tech Stack
+
 HTML5 (Semantic structure)
-CSS3 (Typography and layout basics)
-JavaScript ES6+ (Fetch API, Promises, Template Literals)
+
+CSS3 (Flexbox, transitions, glass effect)
+
+Vanilla JavaScript (Fetch API, async data handling)
+
 Open-Meteo API (Geocoding & Forecast)
 
-🚧 Roadmap (Next Steps)
-The project is intentionally "under construction" as I plan to implement:
-Glassmorphism UI: A modern, clean interface.
-Dynamic Backgrounds: Background colors that change based on weather conditions.
-Weather Icons: Visual representation of weather codes (sunny, rainy, etc.).
-Error UI: Custom on-screen alerts instead of browser pop-ups.
-
-🧠 Technical Learnings
-In this phase, I focused on:
-Chained API Calls: Requesting coordinates first, then using that data for the weather forecast.
-Performance: Implementing .woff2 variable fonts for faster loading.
-Clean Code: Keeping logic separated and using modern JS syntax.
+---
+*Feedback is always welcome as I continue exploring frontend development!*
