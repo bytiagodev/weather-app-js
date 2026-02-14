@@ -6,51 +6,156 @@
     font-style: normal;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     font-family: 'Satoshi', sans-serif;
     font-weight: 400;
-    background-color: #f0f0f0;
-     -webkit-font-smoothing: antialiased; /* makes fonts smoother on Mac/iOS */
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    background: linear-gradient(to bottom, rgb(28,156,246), rgb(25,195,251));
+    transition: background 0.5s ease;
 }
 
 button, input, textarea, select {
     font-family: inherit;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.03em;
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgba(240, 245, 250, 0.15); /* quase gelo, transparente mas mais visível */
+    backdrop-filter: blur(18px); /* aumenta o blur para profundidade */
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: background-color 0.5s ease;
 }
 
-.container {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    box-shadow: 0 0 10 rgba(0, 0, 0, 0.3);
-    margin-top: 105px;
+.weather-container h2 {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-weight: 500;
 }
 
 input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 90%;
+    max-width: 260px;
+    font-size: 1.05rem;
+    padding: 12px 14px;
+    margin-bottom: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 180, 255, 0.5);
+    background-color: rgba(240, 245, 250, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: #fff;
+    font-weight: 600;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(255,255,255,0.8);
+    font-weight: 400;
+}
+
+input[type="text"]:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
 }
 
 button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
+    width: 50%;
+    min-width: 120px;
+    padding: 12px 0;
     border-radius: 5px;
+    border: none;
+    background-color: rgb(28, 156, 246);
+    color: #fff;
     cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 0.25rem;
+}
+
+button:hover {
+    background-color: rgb(25,195,251);
+    box-shadow: 0 0 10px rgba(25,195,251,0.4);
+}
+
+.city-name {
+    margin: 0.5rem 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.6);
 }
 
 .weather-info {
-    margin-top: 20px;
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.temperature, .wind {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+.message {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #fff;
+    transition: 0.3s ease;
+    display: none;
+}
+
+.loading {
+    display: block;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {opacity: 0.5;}
+    50% {opacity: 1;}
+    100% {opacity: 0.5;}
+}
+
+.error {
+    color: #ff5555;
+}
+
+body.clear-sky { background: linear-gradient(to bottom, #28c6f6, #00aaff); }
+body.cloudy    { background: linear-gradient(to bottom, #6e7b8b, #4a5568); }
+body.rain      { background: linear-gradient(to bottom, #3a3a5c, #1f2a44); }
+body.snow      { background: linear-gradient(to bottom, #e0f7fa, #b2ebf2); }
+
+.weather-container.clear-sky { background-color: rgba(200, 245, 255, 0.35); }
+.weather-container.cloudy    { background-color: rgba(180, 200, 220, 0.35); }
+.weather-container.rain      { background-color: rgba(160, 180, 220, 0.35); }
+.weather-container.snow      { background-color: rgba(230, 245, 255, 0.4); }
+
